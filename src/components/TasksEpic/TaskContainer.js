@@ -1,0 +1,17 @@
+import React, {useState} from 'react'
+import { View } from 'react-native'
+
+import TaskList from './TaskList'
+
+function TaskContainer() {
+  const [tasks, setTasks] = useState([
+    { title : 'taskee', completed : false}
+  ])
+  return (
+    <View>
+      <TaskList tasks={tasks} />
+    </View>
+  )
+}
+
+export default TaskContainer
