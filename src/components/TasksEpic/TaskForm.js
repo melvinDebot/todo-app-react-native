@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, TextInput } from 'react-native'
 
 const TaskForm = ({ }) => {
+  const [title, setTitle] = useState('')
   const _onChangeText = (value) => {
-
+    setTitle(value)
   }
   return (
     <View>
-      <TextInput value={'Enter'} onChangeText={ _onChangeText }/>
+      <TextInput value={title} onChangeText={ _onChangeText }/>
     </View>
   )
 }
