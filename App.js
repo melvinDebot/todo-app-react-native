@@ -20,5 +20,6 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS == "android" ? 25 : 0,
     paddingLeft: 20,
     paddingRight: 20,
+    backgroundColor : "#FAFAFA"
   },
 });
