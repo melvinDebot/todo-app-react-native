@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-const FloatingButton = ({ }) => {
+const FloatingButton = ({ toggleForm, isFormOpened }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>+</Text>
-    </View>
+    <TouchableOpacity style={styles.container} onPress={toggleForm}>
+      {isFormOpened ? <Text style={styles.title}>X</Text> : <Text style={styles.title}>+</Text>}
+    </TouchableOpacity>
   )
 }
 

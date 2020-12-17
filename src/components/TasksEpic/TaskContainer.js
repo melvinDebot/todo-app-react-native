@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 
 import TaskList from "./TaskList";
@@ -7,9 +7,6 @@ import CounterContainer from './CounterContainer';
 import FloatingButton from '../_Shared/FloatingButton/index'
 
 function TaskContainer(props) {
-  useEffect(() => {
-    console.log()
-  })
   const numberRandom = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
   }
@@ -17,6 +14,8 @@ function TaskContainer(props) {
   const [tasks, setTasks] = useState([
     { id: numberRandom(100), title: "taskee", completed: false },
   ]);
+
+  const [isFormOpened, setIsFormOpened] = useState(false)
 
   const onAddTask = (title) => {
     const newTask = { id: numberRandom(100), title: title, completed: false };
@@ -61,12 +60,15 @@ function TaskContainer(props) {
 
     return counter
   }
+  const toggleForm = () => {
+    setIsFormOpened(!isFormOpened)
+  }
   return (
     <View style={styles.container}>
-      <TaskForm onAddTask={onAddTask} />
+      {isFormOpened && <TaskForm onAddTask={onAddTask} />}
       <CounterContainer nbTasks={tasks.length} nbTasksCompleted={() => getTasksCompleted()}/>
       <TaskList tasks={tasks} onChangeStatus={onChangeStatus} onDeleteTask={onDeleteTask} />
-      <FloatingButton />
+      <FloatingButton toggleForm={toggleForm} isFormOpened={isFormOpened}/>
     </View>
   );
 }
