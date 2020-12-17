@@ -4,11 +4,13 @@ import { Image, Text, View, StyleSheet } from "react-native";
 const TaskTile = ({ title }) => {
   return (
     <View style={styles.container}>
-      <Image
+      <View style={styles.subContainer}>
+        <Image
         style={styles.icon}
         source={require("../../../assets/icon_circle.png")}
       />
       <Text style={styles.title}>{title}</Text>
+      </View>
       <Image
         style={styles.icon}
         source={require("../../../assets/icon_bin.png")}
@@ -20,11 +22,16 @@ const TaskTile = ({ title }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
   },
+  subContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent : "center"
+  },
   title: {
-    marginLeft: 0,
+    marginLeft: 15,
   },
   icon: {
     width: 30,
