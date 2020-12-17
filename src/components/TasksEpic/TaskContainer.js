@@ -5,30 +5,35 @@ import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
 
 function TaskContainer(props) {
-  const [tasks, setTasks] = useState([{ id: new Date().getTime, title: "taskee", completed: false }]);
+  const [tasks, setTasks] = useState([
+    { id: new Date().getTime, title: "taskee", completed: false },
+  ]);
 
-  const onAddTask = title => {
-    const newTask = {id: new Date().getTime, title : title, completed : false,}
-    setTasks([newTask, ...tasks])
-  }
+  const onAddTask = (title) => {
+    const newTask = { id: new Date().getTime, title: title, completed: false };
+    setTasks([newTask, ...tasks]);
+  };
 
-  const onChangeStatus = id => {
-    let newTasks = []
-    tasks.forEach(task => {
+  const onChangeStatus = (id) => {
+    let newTasks = [];
+    tasks.forEach((task) => {
       if (task.id === id) {
-        newTasks.push({id:id, title: task.title, completed: !task.completed})
+        newTasks.push({
+          id: id,
+          title: task.title,
+          completed: !task.completed,
+        });
       } else {
-        newTasks.push(task)
+        newTasks.push(task);
       }
-    })
-    
+    });
 
-    setTasks(newTasks)
-  }
+    setTasks(newTasks);
+  };
   return (
     <View style={styles.container}>
-      <TaskForm onAddTask={onAddTask}/>
-      <TaskList tasks={tasks} onChangeStatus={onChangeStatus}/>
+      <TaskForm onAddTask={onAddTask} />
+      <TaskList tasks={tasks} onChangeStatus={onChangeStatus} />
     </View>
   );
 }
@@ -36,8 +41,8 @@ function TaskContainer(props) {
 const styles = StyleSheet.create({
   container: {
     paddingLeft: 10,
-    paddingRight : 10
-  }
-})
+    paddingRight: 10,
+  },
+});
 
 export default TaskContainer;

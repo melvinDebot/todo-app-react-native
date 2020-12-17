@@ -1,26 +1,23 @@
 import React from "react";
 import { Image, Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
-const TaskTile = ({ title, onChangeStatus, id }) => {
+const TaskTile = ({ title, onChangeStatus, id, completed }) => {
   return (
-    <TouchableOpacity
-      onPress={()=> onChangeStatus(id)}
-    >
+    <TouchableOpacity onPress={() => onChangeStatus(id)}>
       <View style={styles.container}>
-      <View style={styles.subContainer}>
+        <View style={styles.subContainer}>
+          <Image
+            style={styles.icon}
+            source={completed ? require("../../../assets/icon_circle.png") : require("../../../assets/icon_checked.png")}
+          />
+          <Text style={styles.title, {color: completed ? 'red' : 'black'}}>{title}</Text>
+        </View>
         <Image
-        style={styles.icon}
-        source={require("../../../assets/icon_circle.png")}
-      />
-      <Text style={styles.title}>{title}</Text>
+          style={styles.icon}
+          source={require("../../../assets/icon_bin.png")}
+        />
       </View>
-      <Image
-        style={styles.icon}
-        source={require("../../../assets/icon_bin.png")}
-      />
-    </View>
     </TouchableOpacity>
-    
   );
 };
 
@@ -33,7 +30,7 @@ const styles = StyleSheet.create({
   subContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent : "center"
+    justifyContent: "center",
   },
   title: {
     marginLeft: 15,
