@@ -1,14 +1,14 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const Counter = ({ nb, title }) => {
   return (
     <View>
       <Text style={styles.nb}>{nb}</Text>
-      <Text style={styles.title}>{ title }</Text>
+      <Text style={styles.title}>{title}</Text>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   nb: {
@@ -16,9 +16,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   title: {
-    color: 'grey',
+    color: "grey",
     fontSize: 20,
-  }
-})
+  },
+});
 
-export default Counter
+export default Counter;

@@ -15,7 +15,11 @@ const TaskForm = ({ onAddTask }) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerInput}>
-        <TextInput value={title} onChangeText={_onChangeText} style={{height : 30}}/>
+        <TextInput
+          value={title}
+          onChangeText={_onChangeText}
+          style={{ height: 30 }}
+        />
       </View>
       <Button
         onPress={_onPressBtn}

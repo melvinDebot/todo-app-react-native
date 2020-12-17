@@ -26,3 +26,7 @@ expo start
 
 [Install Expo on my device](https://apps.apple.com/fr/app/expo-client/id982107779)
 scan the qr code and welcome to my app😉
+
+# The rendering
+
+![](mobile.gif)

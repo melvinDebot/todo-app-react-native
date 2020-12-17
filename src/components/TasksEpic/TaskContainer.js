@@ -3,19 +3,19 @@ import { View, StyleSheet } from "react-native";
 
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
-import CounterContainer from './CounterContainer';
-import FloatingButton from '../_Shared/FloatingButton/index'
+import CounterContainer from "./CounterContainer";
+import FloatingButton from "../_Shared/FloatingButton/index";
 
-function TaskContainer(props) {
+function TaskContainer() {
   const numberRandom = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
-  }
+  };
 
   const [tasks, setTasks] = useState([
     { id: numberRandom(100), title: "Prendre de la Mangue", completed: false },
   ]);
 
-  const [isFormOpened, setIsFormOpened] = useState(false)
+  const [isFormOpened, setIsFormOpened] = useState(false);
 
   const onAddTask = (title) => {
     const newTask = { id: numberRandom(100), title: title, completed: false };
@@ -39,36 +39,43 @@ function TaskContainer(props) {
     setTasks(newTasks);
   };
 
-  const onDeleteTask = id => {
-    let newTasks = []
-    tasks.forEach(task => {
+  const onDeleteTask = (id) => {
+    let newTasks = [];
+    tasks.forEach((task) => {
       if (task.id !== id) {
-        newTasks.push(task)
+        newTasks.push(task);
       }
-    })
+    });
 
     setTasks(newTasks);
-  }
+  };
   const getTasksCompleted = () => {
-    let counter = 0
+    let counter = 0;
 
-    tasks.forEach(task => {
+    tasks.forEach((task) => {
       if (task.completed) {
-        counter++
+        counter++;
       }
-    })
+    });
 
-    return counter
-  }
+    return counter;
+  };
   const toggleForm = () => {
-    setIsFormOpened(!isFormOpened)
-  }
+    setIsFormOpened(!isFormOpened);
+  };
   return (
     <View style={styles.container}>
       {isFormOpened && <TaskForm onAddTask={onAddTask} />}
-      <CounterContainer nbTasks={tasks.length} nbTasksCompleted={() => getTasksCompleted()}/>
-      <TaskList tasks={tasks} onChangeStatus={onChangeStatus} onDeleteTask={onDeleteTask} />
-      <FloatingButton toggleForm={toggleForm} isFormOpened={isFormOpened}/>
+      <CounterContainer
+        nbTasks={tasks.length}
+        nbTasksCompleted={() => getTasksCompleted()}
+      />
+      <TaskList
+        tasks={tasks}
+        onChangeStatus={onChangeStatus}
+        onDeleteTask={onDeleteTask}
+      />
+      <FloatingButton toggleForm={toggleForm} isFormOpened={isFormOpened} />
     </View>
   );
 }
@@ -78,7 +85,7 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     flex: 1,
-    position : "relative"
+    position: "relative",
   },
 });
 

@@ -1,13 +1,17 @@
-import React from 'react'
-import { Text, StyleSheet, TouchableOpacity } from 'react-native'
+import React from "react";
+import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const FloatingButton = ({ toggleForm, isFormOpened }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={toggleForm}>
-      {isFormOpened ? <Text style={styles.title}>X</Text> : <Text style={styles.title}>+</Text>}
+      {isFormOpened ? (
+        <Text style={styles.title}>X</Text>
+      ) : (
+        <Text style={styles.title}>+</Text>
+      )}
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -24,8 +28,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     textAlign: "center",
-    fontSize : 35
-  }
-})
+    fontSize: 35,
+  },
+});
 
-export default FloatingButton
+export default FloatingButton;
