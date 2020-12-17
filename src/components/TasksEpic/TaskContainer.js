@@ -4,6 +4,7 @@ import { View, StyleSheet } from "react-native";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
 import CounterContainer from './CounterContainer';
+import FloatingButton from '../_Shared/FloatingButton/index'
 
 function TaskContainer(props) {
   useEffect(() => {
@@ -64,7 +65,8 @@ function TaskContainer(props) {
     <View style={styles.container}>
       <TaskForm onAddTask={onAddTask} />
       <CounterContainer nbTasks={tasks.length} nbTasksCompleted={() => getTasksCompleted()}/>
-      <TaskList tasks={tasks} onChangeStatus={onChangeStatus} onDeleteTask={onDeleteTask}/>
+      <TaskList tasks={tasks} onChangeStatus={onChangeStatus} onDeleteTask={onDeleteTask} />
+      <FloatingButton />
     </View>
   );
 }
@@ -73,6 +75,8 @@ const styles = StyleSheet.create({
   container: {
     paddingLeft: 10,
     paddingRight: 10,
+    flex: 1,
+    position : "relative"
   },
 });
 
