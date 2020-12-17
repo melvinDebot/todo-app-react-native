@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
-const TaskTile = ({ title, onChangeStatus, id, completed }) => {
+const TaskTile = ({ title, onChangeStatus, id, completed, onDeleteTask }) => {
   return (
     <TouchableOpacity onPress={() => onChangeStatus(id)}>
       <View style={styles.container}>
@@ -12,10 +12,14 @@ const TaskTile = ({ title, onChangeStatus, id, completed }) => {
           />
           <Text style={styles.title, {color: completed ? 'red' : 'black'}}>{title}</Text>
         </View>
-        <Image
+        <TouchableOpacity
+          onPress={()=> {onDeleteTask(id)}}
+        >
+          <Image
           style={styles.icon}
           source={require("../../../assets/icon_bin.png")}
         />
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
