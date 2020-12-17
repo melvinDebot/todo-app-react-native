@@ -29,4 +29,4 @@ scan the qr code and welcome to my app😉
 
 # The rendering
 
-![](mobile.gif =250x250)
+![](mobile.gif)
