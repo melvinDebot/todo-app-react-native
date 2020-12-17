@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 100,
-    backgroundColor: "orange",
+    backgroundColor: "#30CE80",
     justifyContent: "center",
   },
   title: {

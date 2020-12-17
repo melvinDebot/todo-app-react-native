@@ -12,7 +12,7 @@ function TaskContainer(props) {
   }
 
   const [tasks, setTasks] = useState([
-    { id: numberRandom(100), title: "taskee", completed: false },
+    { id: numberRandom(100), title: "Prendre de la Mangue", completed: false },
   ]);
 
   const [isFormOpened, setIsFormOpened] = useState(false)

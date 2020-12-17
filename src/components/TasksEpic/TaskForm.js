@@ -15,12 +15,12 @@ const TaskForm = ({ onAddTask }) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerInput}>
-        <TextInput value={title} onChangeText={_onChangeText} />
+        <TextInput value={title} onChangeText={_onChangeText} style={{height : 30}}/>
       </View>
       <Button
         onPress={_onPressBtn}
         title="Ajouter"
-        color="#841584"
+        color="#30CE80"
         accessibilityLabel="Learn more about this purple button"
       />
     </View>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   containerInput: {
     width: "75%",
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#5C5C5C",
     borderRadius: 4,
     paddingLeft: 7,
   },

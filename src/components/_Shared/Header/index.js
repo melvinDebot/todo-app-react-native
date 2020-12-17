@@ -23,20 +23,16 @@ const months = [
   "Septembre",
   "Octobre",
   "Novembre",
-  "Décembre",
+  "Déc",
 ];
 
 export default function Header() {
   const date = new Date();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        {days[date.getDay()] +
-          " " +
-          date.getDate() +
-          " " +
-          months[date.getMonth()]}
-      </Text>
+      <Text style={styles.title}>{ days[date.getDay()]} </Text>
+      <Text style={styles.subTitle}>{ date.getDate() + " " + months[date.getMonth()]}</Text>
+      
     </View>
   );
 }
@@ -45,10 +41,16 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 20,
     marginBottom: 20,
-    marginLeft: 15
+    marginLeft: 15,
+    flexDirection: "row",
+    alignItems: "center"
   },
   title: {
-    fontSize: 25,
+    fontSize: 35,
     fontWeight: "bold",
   },
+  subTitle: {
+    fontSize: 33,
+    color : "#5C5C5C"
+  }
 });
