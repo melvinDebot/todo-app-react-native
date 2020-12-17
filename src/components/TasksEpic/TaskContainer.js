@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
+import CounterContainer from './CounterContainer';
 
 function TaskContainer(props) {
   useEffect(() => {
@@ -48,9 +49,21 @@ function TaskContainer(props) {
 
     setTasks(newTasks);
   }
+  const getTasksCompleted = () => {
+    let counter = 0
+
+    tasks.forEach(task => {
+      if (task.completed) {
+        counter++
+      }
+    })
+
+    return counter
+  }
   return (
     <View style={styles.container}>
       <TaskForm onAddTask={onAddTask} />
+      <CounterContainer nbTasks={tasks.length} nbTasksCompleted={() => getTasksCompleted()}/>
       <TaskList tasks={tasks} onChangeStatus={onChangeStatus} onDeleteTask={onDeleteTask}/>
     </View>
   );
