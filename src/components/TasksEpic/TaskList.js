@@ -3,13 +3,13 @@ import { FlatList, Text } from "react-native";
 
 import TaskTile from "./TaskTile";
 
-const TaskList = ({ tasks }) => {
-  const _renderItem = ({ item }) => <TaskTile title={item.title}></TaskTile>;
+const TaskList = ({ tasks, onChangeStatus }) => {
+  const _renderItem = ({ item }) => <TaskTile title={item.title} onChangeStatus={onChangeStatus} id={item.id}></TaskTile>;
   return (
     <FlatList
       data={tasks}
       renderItem={_renderItem}
-      keyExtractor={(item) => item.title}
+      keyExtractor={(item) => item.id}
     />
   );
 };
