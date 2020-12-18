@@ -15,9 +15,11 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
+      "bundleIdentifier" : "com.yourcompany.todolistapp",
       "supportsTablet": true
     },
     "android": {
+      "package" : "com.yourcompany.todolistapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
